@@ -23,8 +23,8 @@ PKG_CXXFLAGS=-I. -I../arrow/apache-arrow-$(VERSION)/cpp/src/
 PKG_LIBS=
 
 OBJECTS = array.o arraydata.o buffer.o chunkedarray.o column.o datatype.o \
-	field.o io.o memorypool.o message.o recordbatch.o recordbatchreader.o \
-	recordbatchwriter.o symbols.o table.o
+	field.o io.o memorypool.o message.o RcppExports.o recordbatch.o \
+	recordbatchreader.o recordbatchwriter.o symbols.o table.o
 
 all: download $(ARROWLIB)
 
