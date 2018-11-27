@@ -26,9 +26,9 @@ OBJECTS = array.o arraydata.o buffer.o chunkedarray.o column.o datatype.o \
 	field.o io.o memorypool.o message.o RcppExports.o recordbatch.o \
 	recordbatchreader.o recordbatchwriter.o symbols.o table.o
 
-all: download $(ARROWLIB)
+all: download arrowlib
 
-$(ARROWLIB): $(OBJECTS)
+arrowlib: $(OBJECTS)
 
 download:
 	"${R_HOME}/bin${R_ARCH_BIN}/Rscript.exe" --vanilla "../tools/winlibs.R" $(VERSION)
