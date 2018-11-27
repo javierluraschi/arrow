@@ -40,6 +40,7 @@ arrow/apache-arrow-$(VERSION)/cpp/src/debug/arrow.a:
 	(cd arrow/apache-arrow-$(VERSION)/cpp && \
 	mkdir -p debug && \
 	cd debug && \
+	cmake .. -G "MinGW Makefiles" -DCMAKE_SH="CMAKE_SH-NOTFOUND" -DCMAKE_MAKE_PROGRAM="C:\Rtools\bin\make.exe" -DCMAKE_C_COMPILER="/Rtools/mingw_64/bin/gcc.exe" && \
 	$(MAKE) ..)
 
 clean:
