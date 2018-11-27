@@ -16,13 +16,24 @@
 # under the License.
 
 VERSION=0.11.0
-
-PKG_CPPFLAGS=@cflags@
 PKG_CXXFLAGS=$(C_VISIBILITY)
 CXX_STD=CXX11
-PKG_LIBS=@libs@ -Wl,-rpath,/usr/local/lib
 
-all: download
+PKG_CXXFLAGS=-I. -I../arrow/apache-arrow-$(VERSION)/cpp/src/
+PKG_LIBS=
+
+OBJECTS = array.o arraydata.o buffer.o chunkedarray.o column.o datatype.o \
+	field.o io.o memorypool.o message.o recordbatch.o recordbatchreader.o \
+	recordbatchwriter.o symbols.o table.o
+
+all: download $(ARROWLIB)
+
+$(ARROWLIB): $(OBJECTS)
 
 download:
 	"${R_HOME}/bin${R_ARCH_BIN}/Rscript.exe" --vanilla "../tools/winlibs.R" $(VERSION)
+
+clean:
+	rm -f $(OBJECTS) $(ARROWLIB)
+
+.PHONY: all clean

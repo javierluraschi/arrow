@@ -1,4 +1,4 @@
-VERSION <- commandArgs(TRUE)
+VERSION <- "0.11.0"
 
 if (!dir.exists("../arrow")) dir.create("../arrow")
 
