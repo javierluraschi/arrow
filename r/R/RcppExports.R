@@ -653,3 +653,7 @@ Table__column <- function(table, i) {
     .Call(`_arrow_Table__column`, table, i)
 }
 
+timesTwo <- function(x) {
+    .Call(`_arrow_timesTwo`, x)
+}
+
