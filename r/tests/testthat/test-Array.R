@@ -245,6 +245,8 @@ test_that("array supports POSIXct (ARROW-3340)", {
 })
 
 test_that("array supports integer64", {
+  skip("TODO: vctrs CRAN update")
+
   x <- bit64::as.integer64(1:10)
   a <- array(x)
   expect_equal(a$type, int64())
@@ -260,6 +262,8 @@ test_that("array supports integer64", {
 })
 
 test_that("array$as_vector() correctly handles all NA inte64 (ARROW-3795)", {
+  skip("TODO: vctrs CRAN update")
+
   x <- bit64::as.integer64(NA)
   a <- array(x)
   expect_true(is.na(a$as_vector()))
@@ -325,6 +329,8 @@ test_that("integer types casts (ARROW-3741)", {
 })
 
 test_that("integer types cast safety (ARROW-3741)", {
+  skip("TODO: rwinlib")
+
   a <- array(-(1:10))
   expect_error(a$cast(uint8()))
   expect_error(a$cast(uint16()))

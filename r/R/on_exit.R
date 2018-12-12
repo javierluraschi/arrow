@@ -15,7 +15,14 @@
 # specific language governing permissions and limitations
 # under the License.
 
-#' @importFrom withr defer_parent
+#' @importFrom withr defer
+defer_parent <- function(expr, priority = c("first", "last")) {
+  eval(substitute(
+    defer(expr, envir, priority),
+    list(expr = substitute(expr), envir = parent.frame(2), priority = priority, defer = defer)
+  ), envir = parent.frame())
+}
+
 close_on_exit <- function(x, ...){
   defer_parent(x$close(), ...)
   x
