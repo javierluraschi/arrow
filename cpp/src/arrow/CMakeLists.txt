@@ -127,7 +127,7 @@ if (ARROW_TENSORFLOW)
   add_subdirectory(adapters/tensorflow)
 endif()
 
-if (NOT ARROW_BOOST_HEADER_ONLY)
+if (NOT ARROW_BOOST_HEADER_ONLY AND ARROW_HDFS)
   set(ARROW_SRCS ${ARROW_SRCS}
     io/hdfs.cc
     io/hdfs-internal.cc
